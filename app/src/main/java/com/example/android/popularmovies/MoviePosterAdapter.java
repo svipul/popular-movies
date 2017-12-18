@@ -50,7 +50,6 @@ public class MoviePosterAdapter extends RecyclerView.Adapter<MoviePosterAdapter.
             Picasso.with(holder.mPosterImage.getContext())
                     .load(MoviedbApi.getPosterUrl(MoviedbApi.MovieApiCall.IMAGE, movie.getPosterPath()))
                     .into(imageView);
-            holder.mPosterName.setText(movie.getOriginalTitle());
         }
     }
 
@@ -61,25 +60,18 @@ public class MoviePosterAdapter extends RecyclerView.Adapter<MoviePosterAdapter.
 
     class PosterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final ImageView mPosterImage;
-        private final TextView mPosterName;
         private int movieNumber;
 
         public PosterViewHolder(View v) {
             super(v);
             mPosterImage = (ImageView) v.findViewById(R.id.poster_image);
-            mPosterName = (TextView) v.findViewById(R.id.poster_name);
             mPosterImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     posterClicked(v);
                 }
             });
-            mPosterName.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    posterClicked(v);
-                }
-            });
+
         }
 
         public ImageView getGridItem() { return mPosterImage; }

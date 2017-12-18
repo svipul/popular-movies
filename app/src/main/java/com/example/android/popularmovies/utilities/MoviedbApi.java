@@ -2,6 +2,8 @@ package com.example.android.popularmovies.utilities;
 
 import android.net.Uri;
 
+import com.example.android.popularmovies.BuildConfig;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,14 +23,14 @@ public class MoviedbApi {
     final static String MOVIEDB_API_PARAM =
             "api_key";
     final static String MOVIEDB_API_KEY =
-                MoviedbApiKey.KEY;          // Overwrite this with a string for your own API key
+            BuildConfig.MOVIEDB_API_KEY;          // Include a key as api_key variable in local.properties
     final static String MOVIEDB_PAGE_PARAM =
             "page";
 
     public enum MovieApiCall {
         POPULAR ("http://api.themoviedb.org/3/movie/popular"),
         TOP_RATED ("http://api.themoviedb.org/3/movie/top_rated"),
-        IMAGE ("http://image.tmdb.org/t/p/w185//"),
+        IMAGE ("http://image.tmdb.org/t/p/w780//"),
         IMAGE_LARGE ("http://image.tmdb.org/t/p/w342//");
 
         private final String url;
